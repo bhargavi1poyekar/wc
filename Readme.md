@@ -2,7 +2,7 @@
 
 ## Introduction:
 
-This Python script, ccwc.py, is a command-line tool designed to count various attributes of a text file, including the number of bytes, lines, words, and characters. The tool offers flexible options to specify which attribute to count, or to count all attributes by default.
+This Python script, ccwc.py, is a command-line tool designed to replicate the functionality of the Unix wc (word count) command. It counts various attributes of a text file, including the number of bytes, lines, words, and characters. The tool offers flexible options to specify which attribute to count, or to count all attributes by default.
 
 ### -> Features
 1. Count the number of bytes in a file
