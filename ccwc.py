@@ -1,3 +1,5 @@
+#!usr/bin/env python3
+
 import argparse
 import logging
 import os
@@ -80,8 +82,15 @@ def count_chars(file_path):
         logging.error(f"Error counting characters: {e}")
         return None
 
-def print_output(count, file_path):
-    print(f'{count} {file_path}')
+def print_output(bytes=None, lines=None, words=None, chars=None):
+    if lines:
+        print(f'{lines}', end ='\t')
+    if words:
+        print(f'{words}', end ='\t')
+    if bytes:
+        print(f'{bytes}', end ='\t')
+    if chars:
+        print(f'{chars}', end ='\t')
 
 def main():
     # Create the parser
@@ -112,21 +121,23 @@ def main():
     chars = count_chars(file_path)
     
     if not any([args.c, args.l, args.w, args.m]):
-        print(f'{lines}\t{words}\t{bytes} {file_path}')
+        print_output(bytes=bytes, lines=lines, words=words)
 
     else:
     # Check if the count flag is set and call the appropriate function
-        if args.c:
-            print_output(bytes, file_path)
-
         if args.l:
-            print_output(lines, file_path)
+            print_output(lines=lines)
         
         if args.w:
-            print_output(words, file_path)
+            print_output(words=words)
+
+        if args.c:
+            print_output(bytes=bytes)
 
         if args.m:
-            print_output(chars, file_path)
+            print_output(chars=chars)
+        
+    print(file_path)
 
 if __name__ == "__main__":
     main()
